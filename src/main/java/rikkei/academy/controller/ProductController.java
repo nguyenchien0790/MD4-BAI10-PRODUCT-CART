@@ -1,11 +1,12 @@
 package rikkei.academy.controller;
-import rikkei.academy.model.Cart;
-import rikkei.academy.model.Product;
-import rikkei.academy.service.IProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import rikkei.academy.model.Cart;
+import rikkei.academy.model.Product;
+import rikkei.academy.service.IProductService;
 
 import java.util.Optional;
 
@@ -46,4 +47,3 @@ public class ProductController {
     }
 
 }
-

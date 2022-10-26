@@ -29,11 +29,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
-
+@EnableJpaRepositories("rikkei.academy.repository")
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
+@ComponentScan("rikkei.academy.service")
 @ComponentScan("rikkei.academy.controller")
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext;
@@ -80,9 +81,9 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean em = new          LocalContainerEntityManagerFactoryBean();
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("chinh.nguyen.model");
+        em.setPackagesToScan("rikkei.academy.model");
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
